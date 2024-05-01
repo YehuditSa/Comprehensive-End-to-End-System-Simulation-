@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/client.css" rel="stylesheet" />
+  <title>yy-inventory-systems.com</title>
+</head>
+
+<body>
+  <template>
+    <div class="form">
+      <h2>Log in</h2>
+      <form id="loginForm">
+        <input type="text" placeholder="Store name" id="loginStoreName" required />
+        <input type="password" placeholder="Password" id="loginPassword" />
+        <button type="submit" id="submitFromLogInToStore" data-target="store">
+          Log in
+        </button>
+      </form>
+      <p class="message"> Not registered? <span id="fromLoginToSignup" data-target="sign_up">Create an account</span>
+      </p>
+    </div>
+  </template>
+  <template>
+    <div class="form">
+      <h2>Sign up</h2>
+      <form id="signupForm">
+        <input type="text" placeholder="Store name" id="signupStoreName" autocomplete="off" required />
+        <input type="text" placeholder="Contact person" id="signupContactPerson" required />
+        <input type="email" placeholder="Email" id="signupEmail" required />
+        <input type="password" placeholder="Password" id="signupPassword" required />
+        <p class="invalidInput" id="emailExist"></p>
+        <button type="submit" id="submitFromSignUpToStore" data-target="store">
+          Sign up
+        </button>
+      </form>
+      <p class="message">
+        Already have an account?
+        <span id="fromSignupToLogin" data-target="log_in">Login</span>
+      </p>
+    </div>
+  </template>
+  <template>
+    <nav>
+      <button id="logOut" data-target="log_in">Log Out</button>
+      <button id="showAllProducts">Show All Products</button>
+      <form action="#" id="search">
+        <input type="text" id="navSearch" placeholder="Enter an item to search" />
+        <button type="submit" for="navSearch" id="searchBtn">🔍</button>
+      </form>
+    </nav>
+    <main>
+      <h1 id="welcomeToStore"></h1>
+      <br />
+      <h4 id="wStoreEmail">Email:</h4>
+      <br />
+      <h4 id="wStoreContactPerson">Contact Person:</h4>
+      <div id="options">
+        <p id="addProduct">➕</p>
+        <p id="deleteAll">🗑️</p>
+      </div>
+      <div id="addProductWindow">
+        <button id="addX">X</button>
+        <form id="addProductForm">
+          <label for="addName">Enter the product's name:</label>
+          <input type="text" id="addName" name="addName" required /><br />
+          <label for="addBarcode">Enter the product's Barcode:</label>
+          <input type="text" id="addBarcode" name="addBarcode" required /><br />
+          <label for="addAmount">Enter the amounts of items:</label>
+          <input type="text" id="addAmount" name="addAmount" required /><br />
+          <label for="addPrice">Enter the product's prices:</label>
+          <input type="text" id="addPrice" name="addPrice" required />
+          <button type="submit" class="submitBtn">Add product</button>
+        </form>
+      </div>
+      <div id="updateProductWindow">
+        <button id="updateX">X</button>
+        <form id="updateProductForm">
+          <label for="updateName">Enter the product's name:</label>
+          <input type="text" id="updateName" name="updateName" required /><br />
+          <label for="addAmount">Enter the amounts of items:</label>
+          <input type="text" id="updateAmount" name="updateAmount" required /><br />
+          <label for="updatePrice">Enter the product's prices:</label>
+          <input type="text" id="updatePrice" name="updatePrice" required />
+          <button type="submit" class="submitBtn" id="updateSubmitBtn">Update Product</button>
+        </form>
+      </div>
+      <div id="tableContainer">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Barcode</th>
+              <th>Amount</th>
+              <th>Price</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </template>
+  <script src="../js/customObject.js"></script>
+  <script src="../js/DB.js"></script>
+  <script src="../js/server.js"></script>
+  <script src="../js/network.js"></script>
+  <script src="../js/fajax.js"></script>
+  <script src="../js/client.js"></script>
+  <script src="../js/spa.js"></script>
+</body>
+
+</html>
